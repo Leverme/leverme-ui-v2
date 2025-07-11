@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 270 30% 8%;
+    --foreground: 270 15% 95%;
+    --card: 270 25% 12%;
+    --card-foreground: 270 15% 95%;
+    --popover: 270 25% 12%;
+    --popover-foreground: 270 15% 95%;
+    --primary: 270 91% 65%;
+    --primary-foreground: 270 15% 95%;
+    --secondary: 270 80% 45%;
+    --secondary-foreground: 270 15% 95%;
+    --muted: 270 20% 20%;
+    --muted-foreground: 270 10% 65%;
+    --accent: 270 85% 70%;
+    --accent-foreground: 270 15% 95%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 20% 25%;
+    --input: 270 20% 15%;
+    --ring: 270 85% 70%;
+    --chart-1: 270 91% 65%;
+    --chart-2: 250 85% 60%;
+    --chart-3: 290 80% 70%;
+    --chart-4: 260 75% 55%;
+    --chart-5: 280 85% 65%;
+    --radius: 1rem;
+    --sidebar-background: 270 25% 12%;
+    --sidebar-foreground: 270 15% 95%;
+    --sidebar-primary: 270 91% 65%;
+    --sidebar-primary-foreground: 270 15% 95%;
+    --sidebar-accent: 270 20% 20%;
+    --sidebar-accent-foreground: 270 15% 95%;
+    --sidebar-border: 270 20% 25%;
+    --sidebar-ring: 270 85% 70%;
+  }
+
+  .dark {
+    --background: 270 30% 8%;
+    --foreground: 270 15% 95%;
+    --card: 270 25% 12%;
+    --card-foreground: 270 15% 95%;
+    --popover: 270 25% 12%;
+    --popover-foreground: 270 15% 95%;
+    --primary: 270 91% 65%;
+    --primary-foreground: 270 15% 95%;
+    --secondary: 270 80% 45%;
+    --secondary-foreground: 270 15% 95%;
+    --muted: 270 20% 20%;
+    --muted-foreground: 270 10% 65%;
+    --accent: 270 85% 70%;
+    --accent-foreground: 270 15% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 20% 25%;
+    --input: 270 20% 15%;
+    --ring: 270 85% 70%;
+    --chart-1: 270 91% 65%;
+    --chart-2: 250 85% 60%;
+    --chart-3: 290 80% 70%;
+    --chart-4: 260 75% 55%;
+    --chart-5: 280 85% 65%;
+    --sidebar-background: 270 25% 12%;
+    --sidebar-foreground: 270 15% 95%;
+    --sidebar-primary: 270 91% 65%;
+    --sidebar-primary-foreground: 270 15% 95%;
+    --sidebar-accent: 270 20% 20%;
+    --sidebar-accent-foreground: 270 15% 95%;
+    --sidebar-border: 270 20% 25%;
+    --sidebar-ring: 270 85% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-purple-950 via-purple-900 to-purple-800 text-foreground min-h-screen;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+
+  /* 拟物风格基础类 */
+  .skeu-card {
+    @apply bg-gradient-to-br from-purple-800/90 to-purple-900/90 backdrop-blur-sm border border-purple-700/50 rounded-2xl shadow-skeu;
+  }
+
+  .skeu-button {
+    @apply bg-gradient-to-b from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 
+           border border-purple-500/50 rounded-xl shadow-skeu-sm hover:shadow-skeu 
+           transition-all duration-200 active:shadow-skeu-inner transform active:scale-95;
+  }
+
+  .skeu-input {
+    @apply bg-gradient-to-b from-purple-900/50 to-purple-800/50 border border-purple-600/30 
+           rounded-lg shadow-skeu-inner focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20
+           placeholder:text-purple-300/50;
+  }
+
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  /* 自定义滚动条 */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-purple-900/50 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-purple-600 rounded-full hover:bg-purple-500;
+  }
+
+  /* 渐变文字 */
+  .gradient-text {
+    @apply bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300 bg-clip-text text-transparent;
+  }
+
+  /* 发光效果 */
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.1);
+  }
+
+  /* 动画效果 */
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* 数字显示样式 */
+  .mono-numbers {
+    font-variant-numeric: tabular-nums;
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* 拟物风格组件 */
+  .skeu-container {
+    @apply relative p-6 bg-gradient-to-br from-purple-800/80 to-purple-900/80 
+           backdrop-blur-md border border-purple-600/30 rounded-3xl 
+           shadow-[0_8px_32px_rgba(139,92,246,0.15)] 
+           before:absolute before:inset-0 before:rounded-3xl 
+           before:bg-gradient-to-br before:from-white/10 before:to-transparent 
+           before:opacity-50 before:pointer-events-none;
+  }
+
+  .neon-border {
+    @apply relative border border-purple-500/50 rounded-xl
+           before:absolute before:-inset-0.5 before:bg-gradient-to-r 
+           before:from-purple-500 before:to-purple-600 before:rounded-xl 
+           before:opacity-75 before:blur-sm before:-z-10;
+  }
+
+  .trading-card {
+    @apply skeu-container hover:shadow-[0_12px_40px_rgba(139,92,246,0.25)] 
+           transition-all duration-300 hover:scale-[1.02] hover:border-purple-500/50;
+  }
+
+  .stat-card {
+    @apply p-4 bg-gradient-to-br from-purple-700/50 to-purple-800/50 
+           rounded-xl border border-purple-600/30 
+           shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]
+           hover:shadow-purple-glow transition-all duration-200;
+  }
+
+  .action-button {
+    @apply px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 
+           hover:from-purple-500 hover:to-purple-600 
+           text-white font-semibold rounded-xl 
+           shadow-[0_4px_14px_rgba(139,92,246,0.3)]
+           hover:shadow-[0_6px_20px_rgba(139,92,246,0.4)]
+           border border-purple-500/50
+           transition-all duration-200 
+           active:scale-95 active:shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)];
+  }
+}
+
+img {
+  object-position: top;
+}
+
+.fixed {
+  position: fixed;
+}
